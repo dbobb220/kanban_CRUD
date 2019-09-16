@@ -1,0 +1,11 @@
+import React from 'react';
+
+function Current(props) {
+    return (
+        <article className="column current">
+            <h3>Current</h3>
+        </article>
+    )
+}
+
+export default Current;
