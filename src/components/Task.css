@@ -1,0 +1,26 @@
+.card .card-header {
+    padding: 2px 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h5.card-title {
+    margin: 0px;
+    font-size: medium;
+}
+
+span.badge-pill.badge.badge-dark {
+    font-size: smaller;
+}
+
+.card .card-body {
+    padding: 10px 0 10px 10px;
+}
+
+span.badge-pill.badge {
+    height: fit-content;
+}
+
+span.badge-pill.badge {
+    height: fit-content;
+}

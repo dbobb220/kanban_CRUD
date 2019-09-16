@@ -6,28 +6,37 @@
   height: 100vh;
 }
 
-.App-header {
-  display:block;
-  text-align:center;
-}
-
-section.board {
+header.App-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
 }
 
-article.column {
-  border: 1px solid #fff;
-  width: 33%;
-  border-radius: 4px;
+nav span.material-icons {
+  font-size: 2.5rem;
 }
 
-article.column h3 {
+div.col h3 {
   text-align: center;
-  border-bottom: 1px solid #fff;
-  margin: 0;
-  padding: 20px 0;
 }
+
+div.col {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin: 2px;
+  padding:0px;
+}
+
+.col div {
+  display: flex;
+}
+
+main {
+  width: 98vw;
+  margin: 0 auto;
+}
+
 
 
 
