@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import Backlog from './components/Backlog';
-import Current from './components/Current';
-import Done from './components/Done';
 import state from './state';
 import './App.css';
+import Board from './components/Board';
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +23,9 @@ class App extends Component {
           </nav>
         </header>
         <main>
+          <Board 
+            tickets={this.state.tickets}    
+          />
         </main>
       </div>
     );

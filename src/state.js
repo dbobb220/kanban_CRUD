@@ -11,7 +11,7 @@ let state = {
             isDone: false,
             isArchived: false
         },
-        assigneeId: 1,
+        assignee: null,
         priority: 3,
         isArchived: false,
     },
@@ -22,12 +22,12 @@ let state = {
         category:"Sign In",
         status: {
             isBacklog: false,
-            isActive: false,
+            isActive: true,
             isAssigned: true,
             isDone: false,
             isArchived: false
         },
-        assignee: "John",
+        assignee: "John Doe",
         priority: 1,
         isArchived: false
     },
@@ -39,11 +39,11 @@ let state = {
         status: {
             isBacklog: false,
             isActive: false,
-            isAssigned: false,
+            isAssigned: true,
             isDone: true,
             isArchived: false
         },
-        assigneeId: 0,
+        assignee: "Helen World",
         priority: 5,
         isArchived: false
     },

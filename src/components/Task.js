@@ -4,6 +4,7 @@ function Task(props) {
     return (
         <div>
             <p>{props.title}</p>
+            <p>{props.category}</p>
             <p>{props.description}</p>
         </div>
     )
