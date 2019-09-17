@@ -19,6 +19,9 @@ nav span.material-icons {
 
 div.col h3 {
   text-align: center;
+  margin: 0px;
+  padding: 5px 0;
+  border-bottom: 1px solid #fff;
 }
 
 div.col {
@@ -30,6 +33,8 @@ div.col {
 
 .col div {
   display: flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
 }
 
 main {

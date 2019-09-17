@@ -6,15 +6,16 @@
 
 h5.card-title {
     margin: 0px;
-    font-size: medium;
+    font-size: 12px;
 }
 
 span.badge-pill.badge.badge-dark {
-    font-size: smaller;
+    font-size: 8px;
 }
 
 .card .card-body {
     padding: 10px 0 10px 10px;
+    font-size:10px;
 }
 
 span.badge-pill.badge {

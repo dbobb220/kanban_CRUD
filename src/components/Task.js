@@ -4,7 +4,7 @@ import './Task.css';
 
 function Task(props) {
     return (
-        <Card style={{width:'18rem', margin:'2px'}} bg={props.bgcolor} text={props.textColor}>
+        <Card style={{width:'180px', height:'100px', margin:'2px'}} bg={props.bgcolor} text={props.textColor}>
             <Card.Header>
                 <Card.Title>{props.title}</Card.Title>
                 <Badge pill dark>{props.category}</Badge>
