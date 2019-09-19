@@ -35,7 +35,7 @@ let state = {
         id: 3,
         title: "Style Framework",
         description: "Research possible frameworks to use for styling the app",
-        category:"Research",
+        category:"UX/UI",
         status: {
             isBacklog: false,
             isActive: false,
