@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {Form} from 'bootstrap-4-react';
+import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
 
-class NewTask extends Component {
+export default class NewTask extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,22 +25,23 @@ class NewTask extends Component {
 
     render() {
         return (
-            <Form>
+            <div>
+            <Form className="new_task">
                 <Form.Group controlId="taskTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control 
                         type="text" 
                         placeholder="Keep it short!"
                         name="taskTitle"
-                        value={this.state.taskTitle} 
-                        onChange={this.handleChange}
+                        // value={this.state.taskTitle} 
+                        // onChange={this.handleChange}
                     />
                 </Form.Group>
                 <Form.Group controlId="taskCategory">
                     <Form.Label>Category</Form.Label>
                     <Form.Control 
                         type="text" 
-                        placeholder="What's it under?" 
+                        placeholder="Which project/component?" 
                         name="taskCategory"
                         value={this.state.taskCategory}
                         onChange={this.handleChange}
@@ -52,6 +53,7 @@ class NewTask extends Component {
                         as="textarea" 
                         rows="3" 
                         name="taskDescription"
+                        placeholder="Describe task in one sentence."
                         value={this.state.taskDescription}
                         onChange={this.handleChange}
                     />
@@ -73,8 +75,9 @@ class NewTask extends Component {
                     </Form.Control>
                 </Form.Group>
             </Form> 
+            </div>
         )
     }
 }
 
-export default NewTask;
+

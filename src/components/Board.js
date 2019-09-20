@@ -33,7 +33,7 @@ function Board(props) {
                     category={card.category}
                     description={card.description}
                     key={i}
-                    bgcolor={"info"}
+                    bgcolor={"dark"}
                     textColor={"white"}
                 />)
             break

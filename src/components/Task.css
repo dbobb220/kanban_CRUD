@@ -4,12 +4,12 @@
     justify-content: space-between;
 }
 
-h5.card-title {
+div.h5.card-title {
     margin: 0px;
     font-size: 12px;
 }
 
-span.badge-pill.badge.badge-dark {
+span.badge-pill.badge {
     font-size: 8px;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Badge} from 'bootstrap-4-react';
+import {Card, Badge} from 'react-bootstrap';
 import './Task.css';
 
 function Task(props) {
@@ -7,7 +7,7 @@ function Task(props) {
         <Card style={{width:'180px', height:'100px', margin:'2px'}} bg={props.bgcolor} text={props.textColor}>
             <Card.Header>
                 <Card.Title>{props.title}</Card.Title>
-                <Badge pill dark>{props.category}</Badge>
+                <Badge pill variant="dark">{props.category}</Badge>
             </Card.Header>
             <Card.Body>
                 <Card.Text>{props.description}</Card.Text>

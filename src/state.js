@@ -99,7 +99,7 @@ let state = {
         id: 8,
         title: "Add Item",
         description: "Create form to add item",
-        category:"Feature",
+        category:"Task Creation",
         status: {
             isBacklog: true,
             isActive: false,
