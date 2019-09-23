@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tickets: state.tickets,
+      tasks: state.tasks,
       asideActive: true,
       asideContainer: <NewTask />,
       };
@@ -33,7 +33,7 @@ class App extends Component {
         </header>
         <main>
           <Board 
-            tickets={this.state.tickets}    
+            tasks={this.state.tasks}    
           />
         </main>
         {!this.state.asideActive

@@ -8,7 +8,7 @@ function Board(props) {
     let done = [];
 
     // eslint-disable-next-line
-    props.tickets.map((card, i) => {
+    props.tasks.map((card, i) => {
         switch(true) {
             case card.status.isBacklog : backlog.push(<Task 
                     title={card.title}
@@ -17,6 +17,7 @@ function Board(props) {
                     key={i}
                     bgcolor={"light"}
                     textColor={"dark"}
+                    color={card.color}
                 />)
             break 
             case card.status.isActive : active.push(<Task 
@@ -26,6 +27,7 @@ function Board(props) {
                     key={i}
                     bgcolor={"secondary"}
                     textColor={"white"}
+                    color={card.color}
                 />)
             break
             case card.status.isDone : done.push(<Task 
@@ -35,6 +37,7 @@ function Board(props) {
                     key={i}
                     bgcolor={"dark"}
                     textColor={"white"}
+                    color={card.color}
                 />)
             break
             default:

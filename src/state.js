@@ -1,5 +1,5 @@
 let state = {
-    tickets: [{
+    tasks: [{
         id: 1,
         title: "Add Redux",
         description: "Add redux to projects and pass state/dispatch to components",
@@ -11,6 +11,8 @@ let state = {
             isDone: false,
             isArchived: false
         },
+        type: "TechDebt",
+        color: "warning",
         assignee: null,
         priority: 3,
         isArchived: false,
@@ -27,6 +29,8 @@ let state = {
             isDone: false,
             isArchived: false
         },
+        type:"Improvement",
+        color:"primary",
         assignee: "John Doe",
         priority: 1,
         isArchived: false
@@ -43,6 +47,8 @@ let state = {
             isDone: true,
             isArchived: false
         },
+        type:"Research",
+        color:"info",
         assignee: "Helen World",
         priority: 5,
         isArchived: false
@@ -51,7 +57,7 @@ let state = {
         id: 5,
         title: "User metrics",
         description: "Allow user to view graphs and tables of their metrics",
-        category:"Feature",
+        category:"Metrics",
         status: {
             isBacklog: false,
             isActive: false,
@@ -59,6 +65,8 @@ let state = {
             isDone: true,
             isArchived: false
         },
+        type:"Improvement",
+        color:"primary",
         assigneeId: 1,
         priority: 1,
         isArchived: false
@@ -75,6 +83,8 @@ let state = {
             isDone: false,
             isArchived: false
         },
+        type:"Tech Debt",
+        color:"warning",
         assigneeId: 1,
         priority: 1,
         isArchived: false
@@ -91,6 +101,8 @@ let state = {
             isDone: false,
             isArchived: false
         },
+        type:"Tech Debt",
+        color:"warning",
         assigneeId: 1,
         priority: 1,
         isArchived: false
@@ -107,6 +119,8 @@ let state = {
             isDone: false,
             isArchived: false
         },
+        type:"Improvement",
+        color:"primary",
         assigneeId: 1,
         priority: 1,
         isArchived: false

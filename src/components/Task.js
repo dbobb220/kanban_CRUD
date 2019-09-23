@@ -7,7 +7,7 @@ function Task(props) {
         <Card style={{width:'180px', height:'100px', margin:'2px'}} bg={props.bgcolor} text={props.textColor}>
             <Card.Header>
                 <Card.Title>{props.title}</Card.Title>
-                <Badge pill variant="dark">{props.category}</Badge>
+                <Badge pill variant={props.color}>{props.category}</Badge>
             </Card.Header>
             <Card.Body>
                 <Card.Text>{props.description}</Card.Text>
