@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col} from 'bootstrap-4-react';
 import Task from './Task';
 
-function Board(props) {
+const Board = (props) => {
     let backlog = [];
     let active = [];
     let done = [];

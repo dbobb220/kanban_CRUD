@@ -10,13 +10,15 @@
     "bootstrap-4-react": "0.0.59",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "formik": "^1.5.8",
     "material-icons": "^0.3.1",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.1",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",

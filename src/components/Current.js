@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Current(props) {
+const Current =(props) => {
     return (
         <article className="column current">
             <h3>Current</h3>

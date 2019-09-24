@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Done(props) {
+const Done = (props) => {
     return (
         <article className="column done">
             <h3>Done</h3>

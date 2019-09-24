@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Backlog(props) {
+const Backlog = (props) => {
     return (
         <article className="column backlog">
             <h3>Backlog</h3>

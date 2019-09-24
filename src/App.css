@@ -92,3 +92,6 @@ label.form-label {
   font-weight: 700;
 }
 
+div.form-group .error {
+  color: #D11E36;
+}
