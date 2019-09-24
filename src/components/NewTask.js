@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-const dotenv = require('dotenv').config;
 
 export default class NewTask extends Component {
     constructor(props) {
@@ -44,7 +43,7 @@ export default class NewTask extends Component {
             priority: 3,
             isArchived: false
         };
-        fetch(`http://localhost:8080/tasks`, {
+        fetch(`/tasks`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
