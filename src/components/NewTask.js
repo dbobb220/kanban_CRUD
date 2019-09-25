@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import Alert from 'react-bootstrap/Alert'
 
 const schema = Yup.object({
     taskTitle: Yup.string()
@@ -28,48 +29,54 @@ let colorType = {
     Research: "info"
 }
 
-let submitTask = (values) => {
-    let bodySubmit = {
-        title: values.taskTitle,
-        description: values.taskDescription,
-        category: values.taskCategory,
-        status: {
-            isBacklog: true,
-            isActive: false,
-            isAssigned: false,
-            isDone: false,
-            isArchived: false
-        },
-        type: values.taskType,
-        color: colorType[values.taskType],
-        assignee: null,
-        priority: 3,
-        isArchived: false
-    };
-    fetch(`/tasks`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bodySubmit)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-            .catch(err => {
-                console.log(`Error: ${err}`);
-            })
-} 
+// let submitTask = (values) => {
+    
+        
+// } 
 
     const NewTask = () => {
-        return (<div>
+        return (
+        <div>
             <h3 style={{textAlign:'center'}}>Create Task</h3>
             <Formik
                 validationSchema={schema}
-                onSubmit={(values, actions) => {
-                    submitTask(values);
-                    actions.resetForm();
+                onSubmit={async (values, actions) => {
+                    let bodySubmit = {
+                        title: values.taskTitle,
+                        description: values.taskDescription,
+                        category: values.taskCategory,
+                        status: {
+                            isBacklog: true,
+                            isActive: false,
+                            isAssigned: false,
+                            isDone: false,
+                            isArchived: false
+                        },
+                        type: values.taskType,
+                        color: colorType[values.taskType],
+                        assignee: null,
+                        priority: 3,
+                        isArchived: false
+                    };
+                    fetch(`/tasks`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bodySubmit)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        let message = `\'${data.title}\' task added to board`;
+                        actions.resetForm();
+                        actions.setStatus({alert: <Alert variant="success">{message}</Alert>});
+                    })
+                        .catch(err => {
+                            let message = `Something went wrong. \'${values.taskTitle}\' task was not added`
+                            actions.resetForm();
+                            actions.setStatus({alert: <Alert variant="danger">{message}</Alert>});
+                        })
+                    
                 }}
                 initialValues={{
                     taskTitle: '',
@@ -86,9 +93,11 @@ let submitTask = (values) => {
                     values,
                     touched,
                     errors,
+                    status,
                     isValid
                 }) => (
                     <div>
+                    {status ? status.alert : ''}
                     <Form className="new_task" noValidate onSubmit={handleSubmit}>
                         <Form.Group controlId="taskTitle">
                             <Form.Label>Title</Form.Label>
