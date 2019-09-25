@@ -1,9 +1,10 @@
 let Task = require('../models/tasks.js');
 
+
 // get all tasks - list
 exports.list = list = (req, res) => {
     Task.find((err, tasks) => {
-        err ? res.send(`Error: ${err}`) : res.json(tasks)
+        err ? res.send(`Error: ${err}`) : res.json(tasks);
     })
 }
 // post a task - create

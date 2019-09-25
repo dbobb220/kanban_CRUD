@@ -18,6 +18,7 @@ const Board = (props) => {
                     bgcolor={"light"}
                     textColor={"dark"}
                     color={card.color}
+                    button={"Backlog"}
                 />)
             break 
             case card.status.isActive : active.push(<Task 
@@ -25,9 +26,10 @@ const Board = (props) => {
                     category={card.category}
                     description={card.description}
                     key={i}
-                    bgcolor={"secondary"}
-                    textColor={"white"}
+                    bgcolor={"light"}
+                    textColor={"dark"}
                     color={card.color}
+                    button={"Activate"}
                 />)
             break
             case card.status.isDone : done.push(<Task 
@@ -35,9 +37,10 @@ const Board = (props) => {
                     category={card.category}
                     description={card.description}
                     key={i}
-                    bgcolor={"dark"}
-                    textColor={"white"}
+                    bgcolor={"light"}
+                    textColor={"dark"}
                     color={card.color}
+                    button={"Done"}
                 />)
             break
             default:
@@ -47,15 +50,15 @@ const Board = (props) => {
             <Row>
                 <Col>
                     <h3>Backlog</h3>
-                    <div>{backlog}</div>
+                    <div className="column backlog">{backlog}</div>
                 </Col>
                 <Col>
                     <h3>Active</h3>
-                    <div>{active}</div>
+                    <div className="column active">{active}</div>
                 </Col>
                 <Col>
                     <h3>Done</h3>
-                    <div>{done}</div>
+                    <div className="column done">{done}</div>
                 </Col>
             </Row>
         // <section className="board">

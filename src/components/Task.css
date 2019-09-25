@@ -14,14 +14,31 @@ span.badge-pill.badge {
 }
 
 .card .card-body {
-    padding: 10px 0 10px 10px;
+    padding: 10px 0 0 10px;
     font-size:10px;
 }
 
+.card .card-footer {
+    padding:2px 0;
+    display:flex;
+    justify-content:flex-end;
+}
+
+span.material-icons {
+    font-size: 15px;
+    margin: 0 3px;
+}
+
 span.badge-pill.badge {
     height: fit-content;
 }
 
 span.badge-pill.badge {
     height: fit-content;
+}
+
+button.card_btn.btn.btn-sm {
+    width: fit-content;
+    font-size: 10px;
+    padding: 0.10rem .25rem;
 }

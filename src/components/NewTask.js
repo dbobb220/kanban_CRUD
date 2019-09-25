@@ -22,7 +22,7 @@ const schema = Yup.object({
 });
 
 let colorType = {
-    Bug: "warning",
+    Bug: "danger",
     Feature: "success",
     TechDebt: "warning",
     Improvement: "primary",

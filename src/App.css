@@ -3,8 +3,11 @@
   color:white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
+.App * {
+  cursor: default;
+}
+
 
 header.App-header {
   display: flex;
@@ -35,6 +38,17 @@ div.col {
   display: flex;
   flex-wrap:wrap;
   justify-content: space-evenly;
+}
+
+.col div.column {
+  height: fit-content;
+  max-height:100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+
 }
 
 main {

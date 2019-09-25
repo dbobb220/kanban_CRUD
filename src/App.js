@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import state from './state';
 import './App.css';
 import 'material-icons'
 import Board from './components/Board';
@@ -9,8 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: state.tasks,
-      asideActive: true,
+      tasks: [],
+      asideActive: false,
       asideContainer: <NewTask />,
       };
     this.menuToggle = this.menuToggle.bind(this);
@@ -20,6 +19,17 @@ class App extends Component {
     this.state.asideActive 
       ? this.setState({asideActive: false})
       : this.setState({asideActive: true});
+  }
+
+  componentDidMount() {
+    fetch('/tasks') 
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+          this.state.tasks = data;
+          this.setState({tasks: this.state.tasks});
+        })
+          .catch(err=>console.log(err))
   }
 
   render() {
