@@ -10,7 +10,8 @@ const Board = (props) => {
     // eslint-disable-next-line
     props.tasks.map((card, i) => {
         switch(true) {
-            case card.status.isBacklog : backlog.push(<Task 
+            case card.status === 'isBacklog' : backlog.push(<Task 
+                    id={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}
@@ -18,10 +19,12 @@ const Board = (props) => {
                     bgcolor={"light"}
                     textColor={"dark"}
                     color={card.color}
-                    button={"Backlog"}
+                    status={card.status}
+                    loadTasks={props.loadTasks}
                 />)
             break 
-            case card.status.isActive : active.push(<Task 
+            case card.status === 'isActive' : active.push(<Task 
+                    id={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}
@@ -29,10 +32,12 @@ const Board = (props) => {
                     bgcolor={"light"}
                     textColor={"dark"}
                     color={card.color}
-                    button={"Activate"}
+                    status={card.status}
+                    loadTasks={props.loadTasks}
                 />)
             break
-            case card.status.isDone : done.push(<Task 
+            case card.status === 'isDone' : done.push(<Task 
+                    id={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}
@@ -40,7 +45,8 @@ const Board = (props) => {
                     bgcolor={"light"}
                     textColor={"dark"}
                     color={card.color}
-                    button={"Done"}
+                    status={card.status}
+                    loadTasks={props.loadTasks}
                 />)
             break
             default:

@@ -10,26 +10,30 @@ class App extends Component {
     this.state = {
       tasks: [],
       asideActive: false,
-      asideContainer: <NewTask />,
+      asideContainer: [],
       };
     this.menuToggle = this.menuToggle.bind(this);
-    }
+    this.loadTasks = this.loadTasks.bind(this);
+  }
 
   menuToggle() {
-    this.state.asideActive 
+    this.state.asideActive
       ? this.setState({asideActive: false})
-      : this.setState({asideActive: true});
+      : this.setState({asideActive: true})
   }
 
   componentDidMount() {
+    this.loadTasks();
+  }
+
+  loadTasks() {
     fetch('/tasks') 
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data);
-          this.state.tasks = data;
-          this.setState({tasks: this.state.tasks});
-        })
-          .catch(err=>console.log(err))
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      this.setState({tasks: data});
+    })
+      .catch(err=>console.log(err))
   }
 
   render() {
@@ -38,12 +42,13 @@ class App extends Component {
         <header className="App-header">
           <h1>Simple Kanban CRUD App</h1>
           <nav>
-            <span className="material-icons" onClick={this.menuToggle}>playlist_add</span>
+    <span className="material-icons" onClick={()=>{this.menuToggle(); this.setState({asideContainer:<NewTask loadTasks={this.loadTasks}/>})}} title="New Task">playlist_add</span>
           </nav>
         </header>
         <main>
           <Board 
-            tasks={this.state.tasks}    
+            tasks={this.state.tasks}
+            loadTasks={this.loadTasks}   
           />
         </main>
         {!this.state.asideActive

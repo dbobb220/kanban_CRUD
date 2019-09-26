@@ -1,4 +1,4 @@
-let Task = require('../models/tasks.js');
+let Task = require('./TaskModel.js');
 
 
 // get all tasks - list
@@ -13,19 +13,21 @@ exports.create = create = (req, res) => {
         title: req.body.title,
         description: req.body.description,
         category: req.body.category,
-        status: {
-            isBacklog: req.body.status.isBacklog,
-            isActive: req.body.status.isActive,
-            isAssigned: req.body.status.isAssigned,
-            isDone: req.body.status.isDone,
-        },
+        status: req.body.status,
         type: req.body.type,
         color: req.body.color,
         assignee: req.body.assignee,
         priority: req.body.priority,
-        isArchived: req.body.status.isArchived
     })
     newTask.save((err, task) => {
         err ? res.send(`Error: ${err}`) : res.json(task);
+    })
+}
+
+exports.move = move = (req, res) => {
+    let findTask = req.params.taskId;
+    let updateTask = req.body;
+    Task.findByIdAndUpdate(findTask, updateTask, (err, result) => {
+       err ? res.send(`Error: ${err}`) : res.send('Task Moved');
     })
 }

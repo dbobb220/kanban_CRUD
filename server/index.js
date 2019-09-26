@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const tasksRoutes = require('./routes/tasks');
+const tasksRoutes = require('./tasks/TaskRoutes.js');
 
 dotenv.config();
 
