@@ -5,9 +5,7 @@
   flex-direction: column;
   overflow-x:hidden;
 }
-.App * {
-  cursor: default;
-}
+
 
 
 header.App-header {
@@ -109,4 +107,8 @@ label.form-label {
 
 div.form-group .error {
   color: #D11E36;
+}
+
+span.material-icons {
+  cursor: pointer;
 }
