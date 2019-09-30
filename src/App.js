@@ -1,42 +1,22 @@
 import React, {Component} from 'react';
 import './App.css';
 import 'material-icons'
-import Board from './components/Board';
+import Board from './containers/Board';
 import NewTask from './components/NewTask';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tasks: [],
-      asideActive: false,
-      asideContainer: [],
-      };
-    this.menuToggle = this.menuToggle.bind(this);
-    this.loadTasks = this.loadTasks.bind(this);
-  }
-
-  menuToggle() {
-    this.state.asideActive
-      ? this.setState({asideActive: false})
-      : this.setState({asideActive: true})
-  }
-
-  componentDidMount() {
-    this.loadTasks();
-  }
-
-  loadTasks() {
-    fetch('/tasks') 
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-      this.setState({tasks: data});
-    })
-      .catch(err=>console.log(err))
+componentDidMount() {
+    this.props.fetchCall('/tasks');
+    this.props.fetchLoading(false);
   }
 
   render() {
+    let boardContainer = []
+    if(this.props.isLoading) {
+      boardContainer = <p>I'm Loading Here!</p>
+    } else {
+      boardContainer = <Board tasks={this.props.tasks} />
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -46,19 +26,16 @@ class App extends Component {
           </nav>
         </header>
         <main>
-          <Board 
-            tasks={this.state.tasks}
-            loadTasks={this.loadTasks}   
-          />
+          {boardContainer}
         </main>
-        {!this.state.asideActive
+        {!this.props.asideActive
           ? <aside className="aside">
               <span className="menuclose">&times;</span>   
-              {this.state.asideContainer}
+              {this.props.asideContainer}
             </aside>
           : <aside className="aside active">
-              <span className="menuclose" onClick={this.menuToggle}>&times;</span>  
-              {this.state.asideContainer}
+              <span className="menuclose">&times;</span>  
+              {this.props.asideContainer}
             </aside>
           }
       </div>

@@ -20,7 +20,7 @@ const Board = (props) => {
                     textColor={"dark"}
                     color={card.color}
                     status={card.status}
-                    loadTasks={props.loadTasks}
+                    // loadTasks={props.loadTasks}
                 />)
             break 
             case card.status === 'isActive' : active.push(<Task 
@@ -33,7 +33,7 @@ const Board = (props) => {
                     textColor={"dark"}
                     color={card.color}
                     status={card.status}
-                    loadTasks={props.loadTasks}
+                    // loadTasks={props.loadTasks}
                 />)
             break
             case card.status === 'isDone' : done.push(<Task 
@@ -46,7 +46,7 @@ const Board = (props) => {
                     textColor={"dark"}
                     color={card.color}
                     status={card.status}
-                    loadTasks={props.loadTasks}
+                    // loadTasks={props.loadTasks}
                 />)
             break
             default:

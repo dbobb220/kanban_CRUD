@@ -20,15 +20,15 @@ function Task(props) {
             footIcons = [
                 <span className="material-icons" title="Edit" key="Edit">edit</span>,
                 <span className="material-icons" title="Activate" key="Activate" 
-                        onClick={()=>{updateStatus(props.id, "isActive"); props.loadTasks()}}>add</span>
+                        onClick={()=>{updateStatus(props.id, "isActive");}}>add</span>
             ]
         break;
         case props.status === "isActive":
             footIcons = [
                 <span className="material-icons" title="Edit" key="Edit" onClick={()=>{props.updateStatus(props.id, props.status)}}>edit</span>,
                 <div key="Action">
-                    <span className="material-icons" title="Backlog" key="Backlog" onClick={()=>{updateStatus(props.id, "isBacklog"); props.loadTasks()}}>thumb_down</span>
-                    <span className="material-icons" title="Done" key="Done" onClick={()=>{updateStatus(props.id, "isDone"); props.loadTasks()}}>thumb_up</span>
+                    <span className="material-icons" title="Backlog" key="Backlog" onClick={()=>{updateStatus(props.id, "isBacklog");}}>thumb_down</span>
+                    <span className="material-icons" title="Done" key="Done" onClick={()=>{updateStatus(props.id, "isDone");}}>thumb_up</span>
                 </div>
             ]
         break;
@@ -36,8 +36,8 @@ function Task(props) {
             footIcons = [
                 <span className="material-icons" title="Edit" key="Edit">edit</span>,
                 <div key="Action">
-                    <span className="material-icons" title="Reject" onClick={()=>{updateStatus(props.id, "isActive"); props.loadTasks()}}>close</span>
-                    <span className="material-icons" title="Accept" onClick={()=>{updateStatus(props.id, "isArchive"); props.loadTasks()}}>check</span>
+                    <span className="material-icons" title="Reject" onClick={()=>{updateStatus(props.id, "isActive");}}>close</span>
+                    <span className="material-icons" title="Accept" onClick={()=>{updateStatus(props.id, "isArchive"); }}>check</span>
                 </div>
             ]
         break;
