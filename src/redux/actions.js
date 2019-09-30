@@ -23,12 +23,10 @@ export const fetchSuccess = (tasks) => {
 }
 
 export const fetchCall = (url, obj) => {
-    console.log("fetchCalled");
     return (dispatch) => {
         fetch(url, obj)
         .then(res=>res.json())
         .then(tasks=>{
-                console.log('fetch success')
                 dispatch(fetchSuccess(tasks));
             })
             .catch(err=>dispatch(fetchError(true, err)))

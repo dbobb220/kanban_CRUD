@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'bootstrap-4-react';
-import Task from './Task';
+import Task from '../containers/Task';
 
 const Board = (props) => {
     let backlog = [];

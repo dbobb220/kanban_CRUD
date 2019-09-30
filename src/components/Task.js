@@ -5,6 +5,7 @@ import './Task.css';
 
 function Task(props) {
     let updateStatus = (id, value) => {
+        props.fetchLoading(true);
         let setStatus = {status: value};
         fetch(`/tasks/${id}`, {
           method: 'PATCH',
@@ -13,6 +14,8 @@ function Task(props) {
           },
           body: JSON.stringify(setStatus)
         })
+        props.fetchCall('/tasks');
+        props.fetchLoading(false);
     }
     let footIcons = [];
     switch(true) {

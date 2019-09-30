@@ -11,9 +11,11 @@ componentDidMount() {
   }
 
   render() {
-    let boardContainer = []
+    let boardContainer = [];
     if(this.props.isLoading) {
       boardContainer = <p>I'm Loading Here!</p>
+    } else if(this.props.hasErrored) {
+      boardContainer = <h4 className="board_error">There was an issue loading your board. Please reach out to the admin of this page.</h4>
     } else {
       boardContainer = <Board tasks={this.props.tasks} />
     }

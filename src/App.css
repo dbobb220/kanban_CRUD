@@ -112,3 +112,11 @@ div.form-group .error {
 span.material-icons {
   cursor: pointer;
 }
+
+h4.board_error {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D11E36;
+}
