@@ -11,7 +11,7 @@ const Board = (props) => {
     props.tasks.map((card, i) => {
         switch(true) {
             case card.status === 'isBacklog' : backlog.push(<Task 
-                    id={card._id}
+                    taskId={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}
@@ -24,7 +24,7 @@ const Board = (props) => {
                 />)
             break 
             case card.status === 'isActive' : active.push(<Task 
-                    id={card._id}
+                    taskId={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}
@@ -37,7 +37,7 @@ const Board = (props) => {
                 />)
             break
             case card.status === 'isDone' : done.push(<Task 
-                    id={card._id}
+                    taskId={card._id}
                     title={card.title}
                     category={card.category}
                     description={card.description}

@@ -3,5 +3,6 @@ export default {
     isLoading: true,
     hasErrored: false,
     asideActive: false,
-    asideContainer: []
+    asideContainer: [],
+    editTask: []
 }

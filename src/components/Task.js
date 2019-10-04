@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, Badge} from 'react-bootstrap';
 import 'material-icons';
 import './Task.css';
+import EditTask from '../containers/EditTask';
 
 function Task(props) {
     let updateStatus = (id, value) => {
@@ -17,30 +18,39 @@ function Task(props) {
         props.fetchCall('/tasks');
         props.fetchLoading(false);
     }
+
+    let editTaskClick = (id) => {
+        let task = props.tasks.find(t => t._id === id);
+        props.editClick(task);
+        props.changeAside(['']);
+        props.changeAside(<EditTask />);
+        props.openAside(true);
+    } 
     let footIcons = [];
     switch(true) {
         case props.status === "isBacklog":
             footIcons = [
-                <span className="material-icons" title="Edit" key="Edit">edit</span>,
+                <span className="material-icons" title="Edit" key="Edit" onClick={()=>{editTaskClick(props.taskId)}}
+                    >edit</span>,
                 <span className="material-icons" title="Activate" key="Activate" 
-                        onClick={()=>{updateStatus(props.id, "isActive");}}>add</span>
+                        onClick={()=>{updateStatus(props.taskId, "isActive")}}>add</span>
             ]
         break;
         case props.status === "isActive":
             footIcons = [
-                <span className="material-icons" title="Edit" key="Edit" onClick={()=>{props.updateStatus(props.id, props.status)}}>edit</span>,
+                <span className="material-icons" title="Edit" key="Edit" onClick={()=>{editTaskClick(props.taskId)}}>edit</span>,
                 <div key="Action">
-                    <span className="material-icons" title="Backlog" key="Backlog" onClick={()=>{updateStatus(props.id, "isBacklog");}}>thumb_down</span>
-                    <span className="material-icons" title="Done" key="Done" onClick={()=>{updateStatus(props.id, "isDone");}}>thumb_up</span>
+                    <span className="material-icons" title="Backlog" key="Backlog" onClick={()=>{updateStatus(props.taskId, "isBacklog"); console.log(props.taskId, "isDone")}}>thumb_down</span>
+                    <span className="material-icons" title="Done" key="Done" onClick={()=>{updateStatus(props.taskId, "isDone"); console.log(props.taskId, "isDone");}}>thumb_up</span>
                 </div>
             ]
         break;
         case props.status === "isDone":
             footIcons = [
-                <span className="material-icons" title="Edit" key="Edit">edit</span>,
+                <span className="material-icons" title="Edit" key="Edit" onClick={()=>{editTaskClick(props.taskId)}}>edit</span>,
                 <div key="Action">
-                    <span className="material-icons" title="Reject" onClick={()=>{updateStatus(props.id, "isActive");}}>close</span>
-                    <span className="material-icons" title="Accept" onClick={()=>{updateStatus(props.id, "isArchive"); }}>check</span>
+                    <span className="material-icons" title="Reject" onClick={()=>{updateStatus(props.taskId, "isActive");}}>close</span>
+                    <span className="material-icons" title="Accept" onClick={()=>{updateStatus(props.taskId, "isArchive"); }}>check</span>
                 </div>
             ]
         break;

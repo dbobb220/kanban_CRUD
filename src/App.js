@@ -3,6 +3,7 @@ import './App.css';
 import 'material-icons'
 import Board from './containers/Board';
 import NewTask from './containers/NewTask';
+import EditTask from './containers/EditTask'
 
 class App extends Component {
 componentDidMount() {

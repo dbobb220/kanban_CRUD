@@ -4,3 +4,4 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const CLOSE_ASIDE = 'CLOSE_ASIDE';
 export const OPEN_ASIDE = 'OPEN_ASIDE';
 export const ASIDE_CONTENT = 'ASIDE_CONTENT';
+export const EDIT_CLICK = 'EDIT_CLICK';
