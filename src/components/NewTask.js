@@ -58,7 +58,9 @@ const NewTask = (props) => {
                     let message = `'${data.title}' task added to board`;
                     actions.resetForm();
                     actions.setStatus({alert: <Alert variant="success">{message}</Alert>});
-                    props.loadTasks()
+                    props.fetchLoading(true);
+                    props.fetchCall('/tasks');
+                    props.fetchLoading(false);
                 })
                     .catch(err => {
                         let message = `'${values.taskTitle}' task was not added. ${err}`;

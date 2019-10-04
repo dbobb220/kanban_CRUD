@@ -1,5 +1,4 @@
-import {combineReducers} from 'redux';
-import {FETCH_ERROR, FETCH_LOADING, FETCH_SUCCESS} from './actionTypes';
+import {FETCH_ERROR, FETCH_LOADING, FETCH_SUCCESS} from '../actionTypes'
 
 export const tasks = (state = [], action) => {
     switch (action.type) {
@@ -22,13 +21,3 @@ export const isLoading = (state = true, action) => {
         default: return state;
     }
 }
-
-export const asideActive = (state = true, action) => {
-    return state
-}
-
-export const asideContainer = (state = [], action) => {
-    return state
-}
-
-export default combineReducers({tasks, hasErrored, isLoading, asideActive, asideContainer})

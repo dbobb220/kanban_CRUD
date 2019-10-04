@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Task from '../components/Task';
+import NewTask from '../components/NewTask';
 import {fetchCall, fetchLoading} from '../redux/actions/loadboard';
 
 const mapDispatchToProps = (dispatch) => {
@@ -9,4 +9,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(Task)
+export default connect(null, mapDispatchToProps)(NewTask)

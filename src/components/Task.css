@@ -24,9 +24,9 @@ span.badge-pill.badge {
     justify-content:space-between;
 }
 
-span.material-icons {
+div.card-footer span.material-icons {
     font-size: 15px;
-    margin: 0 3px;
+    padding: 0 5px;
 }
 
 span.badge-pill.badge {

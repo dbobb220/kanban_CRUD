@@ -1,4 +1,4 @@
-import {FETCH_ERROR, FETCH_LOADING, FETCH_SUCCESS} from './actionTypes';
+import {FETCH_ERROR, FETCH_LOADING, FETCH_SUCCESS} from '../actionTypes'
 
 export const fetchError = (bool, err) => {
     return {
@@ -32,4 +32,3 @@ export const fetchCall = (url, obj) => {
             .catch(err=>dispatch(fetchError(true, err)))
     }
 }
-

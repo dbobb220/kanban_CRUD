@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import 'material-icons'
 import Board from './containers/Board';
-import NewTask from './components/NewTask';
+import NewTask from './containers/NewTask';
 
 class App extends Component {
 componentDidMount() {
@@ -24,7 +24,7 @@ componentDidMount() {
         <header className="App-header">
           <h1>Simple Kanban CRUD App</h1>
           <nav>
-    <span className="material-icons" onClick={()=>{this.menuToggle(); this.setState({asideContainer:<NewTask loadTasks={this.loadTasks}/>})}} title="New Task">playlist_add</span>
+    <span className="material-icons" onClick={()=>{this.props.changeAside(<NewTask />); this.props.openAside(true);}} title="New Task">playlist_add</span>
           </nav>
         </header>
         <main>
@@ -32,11 +32,11 @@ componentDidMount() {
         </main>
         {!this.props.asideActive
           ? <aside className="aside">
-              <span className="menuclose">&times;</span>   
+              <span className="menuclose" onClick={()=>{this.props.closeAside(false)}}>&times;</span>   
               {this.props.asideContainer}
             </aside>
           : <aside className="aside active">
-              <span className="menuclose">&times;</span>  
+              <span className="menuclose" onClick={()=>{this.props.closeAside(false)}}>&times;</span>  
               {this.props.asideContainer}
             </aside>
           }
