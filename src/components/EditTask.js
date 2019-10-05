@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Badge} from 'react-bootstrap';
+import {Card, Badge, Form} from 'react-bootstrap';
 
 class EditTask extends Component {
     constructor(props) {
@@ -11,35 +11,47 @@ class EditTask extends Component {
             category: '',
             type: '',
             status: '',
-            color:''
+            color: ''
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.colorType = {
+            Bug: "danger",
+            Feature: "success",
+            TechDebt: "warning",
+            Improvement: "primary",
+            Research: "info"
         }
     }
-    componentDidMount() {
-        this.setState({
-            title: this.props.editTask.title,
-            id: this.props.editTask._id,
-            description: this.props.editTask.description,
-            category: this.props.editTask.category,
-            type: this.props.editTask.type,
-            status: this.props.editTask.status,
-            color: this.props.editTask.color
-        })
+
+    handleChange = (e) => {
+        let target = e.target;
+        let value = target.value;
+        let name = target.name;
+        name === "type" 
+            ? this.setState({type: value, color: this.colorType[value]})
+            : this.setState({[name]: value});
     }
-    componentWillReceiveProps() {
-        this.setState({
-            title: this.props.editTask.title,
-            id: this.props.editTask._id,
-            description: this.props.editTask.description,
-            category: this.props.editTask.category,
-            type: this.props.editTask.type,
-            status: this.props.editTask.status,
-            color: this.props.editTask.color
-        })
-    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.editTask._id !== state.id) {
+          return {
+            title: props.editTask.title,
+            id: props.editTask._id,
+            description: props.editTask.description,
+            category: props.editTask.category,
+            type: props.editTask.type,
+            status: props.editTask.status,
+            color: props.editTask.color
+          };
+        }
+        // Return null to indicate no change to state.
+        return null;
+      }
+
     render() {
         return(
-            <div>
-                <Card style={{width:'180px', height:'110px', margin:'2px'}} bg="light" text="dark">
+            <div className="edit-task">
+                <Card style={{width:'180px', height:'110px'}} bg="light" text="dark">
                     <Card.Header>
                         <Card.Title>{this.state.title}</Card.Title>
                         <Badge pill variant={this.state.color}>{this.state.category}</Badge>
@@ -49,6 +61,56 @@ class EditTask extends Component {
                     </Card.Body>
                     <Card.Footer className="text-muted"></Card.Footer>
                 </Card>
+                <Form>
+                <Form.Group controlId="taskTitle">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control 
+                            required
+                            type="text" 
+                            name="title"
+                            value={this.state.title} 
+                            onChange={this.handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="taskCategory">
+                        <Form.Label>Category</Form.Label>
+                        <Form.Control 
+                            required
+                            type="text" 
+                            name="category"
+                            value={this.state.category}
+                            onChange={this.handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="taskDescription">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control 
+                            required
+                            as="textarea" 
+                            rows="3" 
+                            name="description"
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Type</Form.Label>
+                        <Form.Control 
+                            required
+                            as="select"
+                            name="type"
+                            value={this.state.type}
+                            onChange={this.handleChange}
+                        >
+                            <option value="- Select One -" disabled>- Select One -</option>
+                            <option id="danger" value="Bug">Bug</option>
+                            <option id="success" value="Feature">Feature</option>
+                            <option id="warning" value="TechDebt">Tech Debt</option>
+                            <option id="primary" value="Improvement">Improvement</option>
+                            <option id="info" value="Research">Research</option>
+                        </Form.Control>
+                    </Form.Group>
+                </Form>
             </div>
         )
     }

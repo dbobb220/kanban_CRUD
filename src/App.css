@@ -120,3 +120,17 @@ h4.board_error {
   align-items: center;
   color: #D11E36;
 }
+
+.edit-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-task .card.bg-light.text-dark {
+  margin: 25px auto;
+}
+
+.edit-task form {
+  padding: 30px;
+}
+
