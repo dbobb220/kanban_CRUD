@@ -134,3 +134,13 @@ h4.board_error {
   padding: 30px;
 }
 
+.edit-task .buttons {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-task .card .card-footer {
+  height: 15px;
+}
+

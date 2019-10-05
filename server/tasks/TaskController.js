@@ -31,3 +31,11 @@ exports.move = move = (req, res) => {
        err ? res.send(`Error: ${err}`) : res.send('Task Moved');
     })
 }
+
+exports.update = update = (req, res) => {
+    let findTask = req.params.taskId;
+    let updateTask = req.body;
+    Task.findByIdAndUpdate(findTask, updateTask, (err, result) => {
+       err ? res.send(`Error: ${err}`) : res.send('Task Updated');
+    })
+}

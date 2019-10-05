@@ -32,3 +32,37 @@ export const fetchCall = (url, obj) => {
             .catch(err=>dispatch(fetchError(true, err)))
     }
 }
+
+export const fetchPut = (url, payload) => {
+    return (dispatch) => {
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+            .then(res=> res.text())
+            .then(text=> {
+                console.log(text);
+                dispatch(fetchCall('/tasks'))
+            })
+                .catch(err=>console.log(`Error:${err}`))
+    }
+}
+
+export const updateStatus = (id, value) => {
+    return (dispatch) => {
+        let setStatus = {status: value};
+        fetch(`/tasks/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(setStatus)
+        })
+        .then(res=>res.text())
+        .then(text=>dispatch(fetchCall('/tasks')))
+            .catch(err=>console.log(`Error:${err}`))
+    }
+}

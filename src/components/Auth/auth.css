@@ -1,0 +1,35 @@
+.home {
+    background-color: #191E2B;
+    display: flex;
+    height: 100vh;
+}
+
+section.promo {
+    width: 66.5%;
+}
+
+section.auth {
+    width: 33.5%;
+    background: #FFFFFF;
+    color: #131620;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+
+form.login {
+    display: flex;
+    margin-top: 20px;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
+.create_acc {
+    margin: auto;
+}
+
+.create_acc h4,
+.create_acc h5 {
+    margin-bottom:25px
+}

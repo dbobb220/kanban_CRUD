@@ -11,7 +11,7 @@ const schema = Yup.object({
         .max(20, 'Task title is too long')
         .required('Required'),
     taskCategory: Yup.string()
-        .min(4, 'Task category is too short')
+        .min(3, 'Task category is too short')
         .max(20, 'Task category is too long')
         .required('Required'),
     taskDescription: Yup.string()

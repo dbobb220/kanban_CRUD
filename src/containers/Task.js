@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import Task from '../components/Task';
 import {fetchCall, fetchLoading} from '../redux/actions/loadboard';
 import {editClick} from '../redux/actions/editTask';
-import {closeAside, openAside, changeAside} from '../redux/actions/aside';
+import {openAside, changeAside} from '../redux/actions/aside';
 
 const mapStateToProps = (state) => {
     return {

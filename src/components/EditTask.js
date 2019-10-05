@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Badge, Form} from 'react-bootstrap';
+import {Card, Badge, Form, Button} from 'react-bootstrap';
 
 class EditTask extends Component {
     constructor(props) {
@@ -11,9 +11,12 @@ class EditTask extends Component {
             category: '',
             type: '',
             status: '',
-            color: ''
+            color: '',
+            assignee: null,
+            priority: 3
         }
         this.handleChange = this.handleChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
         this.colorType = {
             Bug: "danger",
             Feature: "success",
@@ -47,6 +50,21 @@ class EditTask extends Component {
         // Return null to indicate no change to state.
         return null;
       }
+
+    onSubmit(id) {
+        let payload = this.state;
+        this.props.fetchLoading(true);
+        this.props.fetchPut(`/tasks/${id}`, payload);
+        this.props.fetchLoading(false);
+        this.props.closeAside(false);
+    }
+
+    onDelete(id, value) {
+        this.props.fetchLoading(true);
+        this.props.updateStatus(id, value);
+        this.props.fetchLoading(false);
+        this.props.closeAside(false);
+    }
 
     render() {
         return(
@@ -111,6 +129,10 @@ class EditTask extends Component {
                         </Form.Control>
                     </Form.Group>
                 </Form>
+                <div className="buttons">
+                    <Button variant="primary" type="submit" onClick={()=>{this.onSubmit(this.state.id)}}>Submit</Button>
+                    <Button variant="danger" type="submit" onClick={()=>{this.onDelete(this.state.id, 'isDeleted')}}>Delete</Button>
+                </div>
             </div>
         )
     }

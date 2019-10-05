@@ -25,7 +25,7 @@ componentDidMount() {
         <header className="App-header">
           <h1>Simple Kanban CRUD App</h1>
           <nav>
-    <span className="material-icons" onClick={()=>{this.props.changeAside(<NewTask />); this.props.openAside(true);}} title="New Task">playlist_add</span>
+            <span className="material-icons" onClick={()=>{this.props.changeAside(<NewTask />); this.props.openAside(true);}} title="New Task">playlist_add</span>
           </nav>
         </header>
         <main>
