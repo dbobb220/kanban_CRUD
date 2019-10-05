@@ -1,0 +1,44 @@
+.card .card-header {
+    padding: 2px 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.h5.card-title {
+    margin: 0px;
+    font-size: 12px;
+}
+
+span.badge-pill.badge {
+    font-size: 8px;
+}
+
+.card .card-body {
+    padding: 10px 0 0 10px;
+    font-size:10px;
+}
+
+.card .card-footer {
+    padding:2px 0;
+    display:flex;
+    justify-content:space-between;
+}
+
+div.card-footer span.material-icons {
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+span.badge-pill.badge {
+    height: fit-content;
+}
+
+span.badge-pill.badge {
+    height: fit-content;
+}
+
+button.card_btn.btn.btn-sm {
+    width: fit-content;
+    font-size: 10px;
+    padding: 0.10rem .25rem;
+}

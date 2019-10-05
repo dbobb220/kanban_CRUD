@@ -1,0 +1,147 @@
+.App {
+  background-color: #191E2B;
+  color:white;
+  display: flex;
+  flex-direction: column;
+  overflow-x:hidden;
+}
+
+
+
+header.App-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+nav span.material-icons {
+  font-size: 2.5rem;
+}
+
+div.col h3 {
+  text-align: center;
+  margin: 0px;
+  padding: 5px 0;
+  border-bottom: 1px solid #fff;
+}
+
+div.col {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin: 2px;
+  padding:0px;
+}
+
+.col div {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+}
+
+.col div.column {
+  height: fit-content;
+  max-height:100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+
+}
+
+main {
+  width: 98vw;
+  margin: 0 auto;
+}
+
+.menu_icon {
+  user-select: none;
+  cursor: pointer;
+  height: 2rem;
+  left: 2rem;
+  position: fixed;
+  top: 2rem;
+  width: 3.6rem;
+  z-index: 2;
+  color:gold;
+}
+
+aside.aside {
+  background: #1E2127;
+  width: 33.3vw;
+  height: 100vh;
+  overflow-y:auto;
+  position: absolute;
+  left: 100vw;
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -ms-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+}
+
+aside.aside.active {
+  left:66.7vw;
+}
+
+span.menuclose {
+  background: transparent;
+  border: 0px;
+  color: #fff;
+  font-size: 3em;
+  left: 20px;
+  position: relative;
+  -webkit-appearance:none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+form.new_task {
+  padding: 30px;
+}
+
+label.form-label {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+div.form-group .error {
+  color: #D11E36;
+}
+
+span.material-icons {
+  cursor: pointer;
+}
+
+h4.board_error {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D11E36;
+}
+
+.edit-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-task .card.bg-light.text-dark {
+  margin: 25px auto;
+}
+
+.edit-task form {
+  padding: 30px;
+}
+
+.edit-task .buttons {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-task .card .card-footer {
+  height: 15px;
+}
+
