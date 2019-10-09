@@ -7,8 +7,6 @@ exports.hash = hash = (word, salts, done) => {
   });
 };
 
-exports.compare = compare = (word, hashedWord, callback) => {
-  bcrypt.compare(word, hashedWord, (err, res) => {
-    return !err ? res : err;
-  });
+exports.compare = compare = (word, hashedWord, done) => {
+  bcrypt.compare(word, hashedWord, done);
 };
