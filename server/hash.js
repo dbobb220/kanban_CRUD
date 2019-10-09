@@ -1,21 +1,14 @@
 const bcrypt = require("bcrypt");
 
-function hash(word,err,done) {
+exports.hash = hash = (word, salts, done) => {
+  console.log("hash started");
+  bcrypt.hash(word, salts, (err, hash) => {
+    return !err ? done(hash) : err(err);
+  });
+};
 
-    bcrypt.hash(word, null, null,function (hashErr, hashedWord) {
-      if(hashErr){
-        console.log(hashErr);
-      }
-      if (hashErr && err) {
-        return err(hashErr);
-      }
-      return done(hashedWord);
-    });
-}
-
-function compare(word,hashedWord,done) {
-  bcrypt.compare(word, hashedWord,done);
-}
-
-exports.hash = hash;
-exports.compare = compare;
+exports.compare = compare = (word, hashedWord, callback) => {
+  bcrypt.compare(word, hashedWord, (err, res) => {
+    return !err ? res : err;
+  });
+};
