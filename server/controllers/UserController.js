@@ -1,4 +1,4 @@
-const User = require("./UserModel");
+const User = require("../models/UserModel");
 const hash = require("../hash").hash;
 const tokenForUser = require("../token").tokenForUser;
 
