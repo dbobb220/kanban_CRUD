@@ -23,8 +23,8 @@ db.once("open", function() {
   console.log(`Database connected`);
 });
 
-app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(bodyParser.json());
 app.use(usersRoutes);
 app.use(sessionRoutes);
 app.use(authRoutes);
