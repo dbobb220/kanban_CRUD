@@ -4,8 +4,9 @@ import Cookie from "js-cookie";
 export const user = (state = [], action) => {
   switch (action.type) {
     case USER_SUCCESS: {
-      Cookie.set("kanban_crud_cookie", action.token);
-      return state;
+      Cookie.set("kanban_crud_cookie", action.token).then(
+        window.location.reload()
+      );
     }
     default:
       return state;

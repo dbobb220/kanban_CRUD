@@ -54,7 +54,7 @@ export const userLogin = obj => {
     })
       .then(res => res.text())
       .then(token => {
-        console.log("login", token);
+        console.log(token);
         dispatch(userSuccess(token));
       })
       .catch(err => dispatch(userError(true, err)));
