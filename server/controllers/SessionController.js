@@ -12,17 +12,17 @@ exports.login = login = (req, res) => {
       // and `false` signifying that the signin failed
       if (!user) {
         console.log("No user found with this username", username);
-        return res.send("No user found with this username");
+        return res.status(401).send({ error: "Invalid Login" });
       }
       compare(password, user.password, function(err, isMatch) {
         // If there is an error call done with our error
         if (err) {
-          return res.send("Error occured");
+          return res.status(500).send({ error: "Error Occured" });
         }
         // If the passwords do not match call done with a `null` argument, signifying no error
         // and `false` signifying that the signin failed
         if (!isMatch) {
-          return res.send("Invalid password");
+          return res.status(401).send({ error: "Invalid Login" });
         }
         console.log(
           "The username was found and the passwords matched",
@@ -36,6 +36,6 @@ exports.login = login = (req, res) => {
       });
     })
     .catch(() => {
-      return res.send("Error occured");
+      return res.status(500).send({ error: "Something failed!" });
     });
 };

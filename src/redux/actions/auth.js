@@ -52,12 +52,16 @@ export const userLogin = obj => {
       },
       body: JSON.stringify(obj)
     })
-      .then(res => res.text())
+      .then(res => res.json())
       .then(token => {
-        console.log(token);
-        dispatch(userSuccess(token));
-      })
-      .catch(err => dispatch(userError(true, err)));
+        if (!token.error) {
+          console.log(token);
+          dispatch(userSuccess(token));
+        } else {
+          console.log("error");
+          dispatch(userError(true, token.error));
+        }
+      });
   };
 };
 
