@@ -35,10 +35,10 @@ export const userSignup = obj => {
     })
       .then(res => res.json())
       .then(token => {
-        console.log("signup", token);
-        dispatch(userSuccess(token));
-      })
-      .catch(err => dispatch(userError(true, err)));
+        !token.error
+          ? dispatch(userSuccess(token))
+          : dispatch(userError(true, token.error));
+      });
   };
 };
 
@@ -54,13 +54,9 @@ export const userLogin = obj => {
     })
       .then(res => res.json())
       .then(token => {
-        if (!token.error) {
-          console.log(token);
-          dispatch(userSuccess(token));
-        } else {
-          console.log("error");
-          dispatch(userError(true, token.error));
-        }
+        !token.error
+          ? dispatch(userSuccess(token))
+          : dispatch(userError(true, token.error));
       });
   };
 };
