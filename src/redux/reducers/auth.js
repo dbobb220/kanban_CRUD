@@ -7,6 +7,7 @@ export const user = (state = [], action) => {
       Cookie.set("kanban_crud_cookie", action.token).then(
         window.location.reload()
       );
+      break;
     }
     default:
       return state;

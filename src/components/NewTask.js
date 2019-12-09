@@ -61,7 +61,13 @@ const NewTask = props => {
               actions.resetForm();
               actions.setStatus({
                 alert: (
-                  <Alert variant="success" dismissible>
+                  <Alert
+                    variant="success"
+                    dismissible
+                    onClick={e => {
+                      actions.setStatus({ alert: "" });
+                    }}
+                  >
                     {message}
                   </Alert>
                 )
@@ -75,7 +81,13 @@ const NewTask = props => {
               actions.resetForm();
               actions.setStatus({
                 alert: (
-                  <Alert variant="danger" dismissible>
+                  <Alert
+                    variant="success"
+                    dismissible
+                    onClick={e => {
+                      actions.setStatus({ alert: "" });
+                    }}
+                  >
                     {message}
                   </Alert>
                 )

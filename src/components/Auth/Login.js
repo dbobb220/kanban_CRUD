@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-import Cookie from "js-cookie";
 
 class Login extends Component {
   constructor(props) {
